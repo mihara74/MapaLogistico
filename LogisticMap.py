@@ -48,8 +48,9 @@ def main():
         initial_sidebar_state='expanded'
     )
     # Título principal da aplicação
-    st.write('# Mapa Logístico')
-    st.markdown("---")
+    st.sidebar.write('### Mapa Logístico : ')
+    st.sidebar.latex(r''' x_{n+1} = r . x_n . (1-x_n) ''')
+    st.sidebar.markdown("---")
     #
     st.sidebar.markdown("## Controles:")
     r  = st.sidebar.slider('Valor de r :', min_value=0.0, max_value=4.0, step=0.0001, value=3.8)
