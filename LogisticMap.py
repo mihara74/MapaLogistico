@@ -30,6 +30,7 @@ def cobweb(f, x0, N, a=0, b=1):
             X.append(fy)
             plt.plot([x, y], [y,  y], 'g', linewidth=1)
             plt.plot([y, y], [y, fy], 'g', linewidth=1)
+            plt.plot(y, fy, 'b.')
             x, y = y, fy
         plt.xlabel(r'$x_n$')
         plt.ylabel(r'$x_{n+1}$')
@@ -49,7 +50,8 @@ def Evolucao(X):
     ymin = 0 if ymin<0 else ymin
     ymax = 1 if ymax>1 else ymax
     fig2 = plt.figure(figsize=(5,4))
-    plt.plot(T[ini:], X[ini:], 'k.-')
+    plt.plot(T[ini:], X[ini:], '-', color='cyan')
+    plt.plot(T[ini:], X[ini:], 'b.')
     plt.xlabel(r'$n$')
     plt.ylabel(r'$x_n$')
     plt.ylim(ymin,ymax)
@@ -74,7 +76,7 @@ def main():
     st.sidebar.markdown("## Controles:")
     r  = st.sidebar.slider('Valor de r :', min_value=0.0, max_value=4.0, step=0.001, value=3.8)
     x0 = st.sidebar.slider('Valor de x0 :', min_value=0.0, max_value=0.999, step=0.001, value=0.25)
-    N = st.sidebar.slider('Núm. máximo de iterações :', min_value=5, max_value=2000, step=1, value=90)
+    N = st.sidebar.slider('Núm. máximo de iterações :', min_value=5, max_value=2000, step=1, value=80)
     #
     # Colunas:
     col1, col2, col3 = st.columns([4,1,4])
